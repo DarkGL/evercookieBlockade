@@ -7,10 +7,18 @@ function loadFunction(){
 		}
 	}
 	
+	window.swfobject = null;
+	
 	var swfObject = document.getElementById( 'swfcontainer' );
 	
 	if( swfObject ){
 		swfObject.parentNode.removeChild(swfObject);
+	}
+	
+	var swfObjects = document.querySelectorAll( '[data="evercookie.swf"]' );
+	
+	for( var iPosition = 0; iPosition < swfObjects.length; iPosition++ ){
+		swfObjects[ iPosition ].parentNode.removeChild( swfObjects[ iPosition ] )
 	}
 	
 	window.Evercookie = function( options ){
